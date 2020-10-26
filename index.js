@@ -22,9 +22,9 @@ bot.on('ready', () =>{
         delete dt
         const dt = new Date();
         const hours = dt.getHours(); // gives the value in 24 hours format
-        hours + 1;
+        const hours2 = hours + 1;
         const minutes = dt.getMinutes() ; 
-        const cas = hours + ":" + minutes;
+        const cas = hours2 + ":" + minutes;
        if(cas == '18:50'){
        bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | http://twitch.tv/xd_p0tat0");
        }
@@ -56,9 +56,9 @@ bot.on('message', msg=>{
         delete dt
         const dt = new Date();
         const hours = dt.getHours(); // gives the value in 24 hours format
-        hours + 1;
+        const hours2 = hours + 1;
         const minutes = dt.getMinutes() ; 
-        const cas = hours + ":" + minutes;
+        const cas = hours2 + ":" + minutes;
         msg.channel.send(cas);
     }
     if(msg.content === ">info"){
