@@ -16,8 +16,14 @@ bot.on('ready', () =>{
 bot.on('ready', () =>{
     console.log(cas)
     setInterval(() =>{
-        delete cas
-        const cas = new Date().toLocaleString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' });
+        delete hours
+        delete minutes
+        delete finalTime
+        delete dt
+        const dt = new Date();
+        const hours = dt.getHours(); // gives the value in 24 hours format
+        const minutes = dt.getMinutes() ; 
+        const cas = hours + ":" + minutes;
        if(cas == '18:50'){
        bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | http://twitch.tv/xd_p0tat0");
        }
@@ -43,7 +49,15 @@ bot.on('message', msg=>{
         msg.react('🏨');
     }
     if(msg.content === ">time"){
-        msg.channel.send(new Date().toLocaleString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' }));
+        delete hours
+        delete minutes
+        delete finalTime
+        delete dt
+        const dt = new Date();
+        const hours = dt.getHours(); // gives the value in 24 hours format
+        const minutes = dt.getMinutes() ; 
+        const cas = hours + ":" + minutes;
+        msg.channel.send(cas);
     }
     if(msg.content === ">info"){
         msg.channel.send('Verze **0.8.1**, Název verze: **Český update** | Vytvořil <@399139182725038080>\nChangelog:*Bugfix a přidaná funkce >napad*');
