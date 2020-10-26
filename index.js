@@ -111,7 +111,7 @@ bot.on('message', msg=>{
                 usedCommandRecently.delete(msg.author.id);
             }, 3600000)
             }
-        }
+        } else{msg.reply('tenhle příkaz se dá použít pouze v příkazovém kanále na serveru Česká Republika')}
     }
     if(msg.channel.id === "769218051928490055"){
         msg.react('✅');
