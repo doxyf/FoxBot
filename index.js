@@ -20,7 +20,7 @@ bot.on('ready', () =>{
         delete cas
         const dateWithouthSecond = new Date();
         const cas = dateWithouthSecond.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-       if(cas == '05:50 pm'){
+       if(cas == '05:50 PM'){
        bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | http://twitch.tv/xd_p0tat0");
        }
        else(console.log(cas));
