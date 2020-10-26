@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = '>';
 const dateWithouthSecond = new Date();
-const cas = dateWithouthSecond.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+const cas = dateWithouthSecond.toLocaleTimeString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' });
 const usedCommandRecently = new Set();
 
 bot.on('ready', () =>{
