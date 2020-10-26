@@ -22,6 +22,7 @@ bot.on('ready', () =>{
         delete dt
         const dt = new Date();
         const hours = dt.getHours(); // gives the value in 24 hours format
+        hours + 1;
         const minutes = dt.getMinutes() ; 
         const cas = hours + ":" + minutes;
        if(cas == '18:50'){
@@ -55,6 +56,7 @@ bot.on('message', msg=>{
         delete dt
         const dt = new Date();
         const hours = dt.getHours(); // gives the value in 24 hours format
+        hours + 1;
         const minutes = dt.getMinutes() ; 
         const cas = hours + ":" + minutes;
         msg.channel.send(cas);
