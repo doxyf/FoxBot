@@ -97,6 +97,7 @@ bot.on('message', msg=>{
 //nápady--------------------------------------------------------------------------------------------------------------------------//
 bot.on('message', msg=>{
     if(msg.content.startsWith('>napad')){
+        if(msg.channel.id === 769130381181321236){
         if(usedCommandRecently.has(msg.author.id)){
             msg.reply('dej si pauzu. Tenhle příkaz se dá použít jen jednou za hodinu.')
         }
@@ -108,7 +109,7 @@ bot.on('message', msg=>{
         setTimeout(() =>  {
             usedCommandRecently.delete(msg.author.id);
         }, 3600000)
-        }
+        }} else{msg.reply('tenhle příkaz se dá použít pouze v příkazovém kanále na serveru Česká Republika')}
     }
     if(msg.channel.id === "769218051928490055"){
         msg.react('✅');
