@@ -90,26 +90,28 @@ bot.on('message', msg=>{
         mention = msg.mentions.users.first();
         dmmsg = msg.content.slice (4);
         mention.send(dmmsg);
+        (msg.channel.send('Zpráva odeslána úspěšně.'));
     }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
 
 //nápady--------------------------------------------------------------------------------------------------------------------------//
 bot.on('message', msg=>{
-    if(msg.content.startsWith('>napad')){
-        if(msg.channel.id === 769130381181321236){
-        if(usedCommandRecently.has(msg.author.id)){
+    if(msg.channel.id === '769130381181321236'){
+        if(msg.content.startsWith('>napad')){
+            if(usedCommandRecently.has(msg.author.id)){
             msg.reply('dej si pauzu. Tenhle příkaz se dá použít jen jednou za hodinu.')
+            }
+            else{
+            mention = msg.mentions.users.first();
+            napados = msg.content.slice (7);
+            bot.channels.cache.get("769218051928490055").send(napados + ' | Poslal:' + ' <@'+msg.author+'>');
+            usedCommandRecently.add(msg.author.id);
+            setTimeout(() =>  {
+                usedCommandRecently.delete(msg.author.id);
+            }, 3600000)
+            }
         }
-        else{
-        mention = msg.mentions.users.first();
-        napados = msg.content.slice (7);
-        bot.channels.cache.get("769218051928490055").send(napados + ' | Poslal:' + ' <@'+msg.author+'>');
-        usedCommandRecently.add(msg.author.id);
-        setTimeout(() =>  {
-            usedCommandRecently.delete(msg.author.id);
-        }, 3600000)
-        }} else{msg.reply('tenhle příkaz se dá použít pouze v příkazovém kanále na serveru Česká Republika')}
     }
     if(msg.channel.id === "769218051928490055"){
         msg.react('✅');
