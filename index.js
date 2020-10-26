@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = '>';
 const dateWithouthSecond = new Date();
-const cas = dateWithouthSecond.toLocaleTimeString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' });
+const cas = new Date().toLocaleString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' });
 const usedCommandRecently = new Set();
 
 bot.on('ready', () =>{
@@ -16,11 +16,9 @@ bot.on('ready', () =>{
 bot.on('ready', () =>{
     console.log(cas)
     setInterval(() =>{
-        delete dateWithouthSecond
         delete cas
-        const dateWithouthSecond = new Date();
-        const cas = dateWithouthSecond.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-       if(cas == '05:50 PM'){
+        const cas = new Date().toLocaleString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' });
+       if(cas == '18:50'){
        bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | http://twitch.tv/xd_p0tat0");
        }
        else(console.log(cas));
@@ -45,7 +43,7 @@ bot.on('message', msg=>{
         msg.react('🏨');
     }
     if(msg.content === ">time"){
-        msg.channel.send(new Date().toLocaleTimeString());
+        msg.channel.send(new Date().toLocaleString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' }));
     }
     if(msg.content === ">info"){
         msg.channel.send('Verze **0.8.1**, Název verze: **Český update** | Vytvořil <@399139182725038080>\nChangelog:*Bugfix a přidaná funkce >napad*');
