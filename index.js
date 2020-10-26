@@ -20,7 +20,7 @@ bot.on('ready', () =>{
         delete cas
         const dateWithouthSecond = new Date();
         const cas = dateWithouthSecond.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-       if(cas == '18:50'){
+       if(cas == '05:50 pm'){
        bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | http://twitch.tv/xd_p0tat0");
        }
        else(console.log(cas));
@@ -101,17 +101,6 @@ bot.on('message', msg=>{
         msg.react('❌');
     }
     
-})
-//--------------------------------------------------------------------------------------------------------------------------------//
-
-//debilní rolesystem--------------------------------------------------------------------------------------------------------------//
-bot.on('message', msg =>{
-    if(msg.content === '>cecfsdh'){
-        if(msg.channel.id === '769130381181321236'){
-            msg.author.roles.add('769121995169726465');
-            msg.reply('nyní patříš mezi Čechy');
-        } else{msg.channel.send('Tento příkaz není podporavaný v tomto kanále.')}
-    }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
 
