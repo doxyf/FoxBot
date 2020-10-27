@@ -62,7 +62,7 @@ bot.on('message', msg=>{
         msg.channel.send(cas);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.8.1**, Název verze: **Český update** | Vytvořil <@399139182725038080>\nChangelog:*Bugfix a přidaná funkce >napad*');
+        msg.channel.send('Verze **0.8.9**, Název verze: **Cloud update** | Vytvořil <@399139182725038080>\nChangelog:\n*-Založen hosting v cloudu - bot nyní běží 24/7.\n- Bugfix\n- Synchronizace naší časové zóny (UTC+1).*');
     }
     if(msg.content === ">help"){
         msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm:ss).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>napad** (zpráva) - Pošle nápad do kanálu s nápady.');
