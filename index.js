@@ -50,16 +50,15 @@ bot.on('message', msg=>{
         msg.react('🏨');
     }
     if(msg.content === ">time"){
-        delete hours
-        delete minutes
-        delete finalTime
-        delete dt
-        const dt = new Date();
-        const hours = dt.getHours(); // gives the value in 24 hours format
-        const hours2 = hours + 1;
-        const minutes = dt.getMinutes() ; 
-        const cas = hours2 + ":" + minutes;
-        msg.channel.send(cas);
+       if(msg.content === '>timefix'){
+const dt = new Date();
+const minuty = dt.getMinutes();
+const hodiny2 = dt.getHours();
+const hodiny = hodiny2+1;
+console.log( (minuty<10?'0':'') + minuty );
+console.log( (hodiny<10?'0':'') + hodiny );
+const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
+msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
         msg.channel.send('Verze **0.8.9**, Název verze: **Cloud update** | Vytvořil <@399139182725038080>\nChangelog:\n*-Založen hosting v cloudu - bot nyní běží 24/7.\n- Bugfix\n- Synchronizace naší časové zóny (UTC+1).*');
