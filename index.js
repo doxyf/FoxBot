@@ -50,7 +50,6 @@ bot.on('message', msg=>{
         msg.react('🏨');
     }
     if(msg.content === ">time"){
-       if(msg.content === '>timefix'){
 const dt = new Date();
 const minuty = dt.getMinutes();
 const hodiny2 = dt.getHours();
