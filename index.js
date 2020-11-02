@@ -26,7 +26,7 @@ bot.on('ready', () =>{
         const minutes = dt.getMinutes() ; 
         const cas = hours2 + ":" + minutes;
        if(cas == '18:50'){
-       bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | http://twitch.tv/xd_p0tat0");
+       bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | <http://twitch.tv/xd_p0tat0>");
        }
        else(console.log(cas));
    }, 60000)
