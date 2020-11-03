@@ -26,7 +26,27 @@ bot.on('ready', () =>{
         const minutes = dt.getMinutes() ; 
         const cas = hours2 + ":" + minutes;
        if(cas == '18:50'){
-       bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | <http://twitch.tv/xd_p0tat0>");
+       bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | <http://twitch.tv/xd_p0tat0>")
+           .then((msg)=> {
+            setInterval(function(){
+                const dt = new Date();
+                const hrs = dt.getSeconds();
+                const hrsdwn = 60 - hrs
+                const min1 = dt.getMinutes();
+                const min = min1 + 1
+                const mindwn = 60 - min
+                const gay = (mindwn<10?'0':'') + mindwn
+                msg.edit('Stream začíná za + 'gay':'hrsdwn' + | <http://twitch.tv/xd_p0tat0>');
+                const dt = new Date();
+                const hours = dt.getHours();
+                const hours2 = hours + 1;
+                const minutes = dt.getMinutes() ; 
+                const cas = hours2 + ":" + minutes;
+                if(cas == '19:00'){
+                return;
+               }
+            }, 5000)
+          }); 
        }
        else(console.log(cas));
    }, 60000)
