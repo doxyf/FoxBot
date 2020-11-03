@@ -82,7 +82,7 @@ msg.channel.send(tajm);
         msg.channel.send('Verze **0.9.5**, Název verze: **Bramborový update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný msg.edit pro oznamování streamů\n- Bugfix*');
     }
     if(msg.content === ">help"){
-        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm:ss).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>napad** (zpráva) - Pošle nápad do kanálu s nápady.');
+        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>napad** (zpráva) - Pošle nápad do kanálu s nápady.');
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
