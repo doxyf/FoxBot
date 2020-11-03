@@ -36,7 +36,7 @@ bot.on('ready', () =>{
                 const min = min1 + 1
                 const mindwn = 60 - min
                 const gay = (mindwn<10?'0':'') + mindwn
-                msg.edit('Stream začíná za + 'gay':'hrsdwn' + | <http://twitch.tv/xd_p0tat0>');
+                msg.edit('Stream začíná za' + gay+ ':' +hrsdwn + '| <http://twitch.tv/xd_p0tat0>');
                 const dt = new Date();
                 const hours = dt.getHours();
                 const hours2 = hours + 1;
