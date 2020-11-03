@@ -29,7 +29,6 @@ bot.on('ready', () =>{
        bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | <http://twitch.tv/xd_p0tat0>")
            .then((msg)=> {
             setInterval(function(){
-                const dt = new Date();
                 const hrs = dt.getSeconds();
                 const hrsdwn = 60 - hrs
                 const min1 = dt.getMinutes();
