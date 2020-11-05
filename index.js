@@ -29,19 +29,21 @@ bot.on('ready', () =>{
        bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | <http://twitch.tv/xd_p0tat0>")
            .then((msg)=> {
             setInterval(function(){
-                const hrs = dt.getSeconds();
+                const d8 = new Date();
+                const hrs = d8.getSeconds();
                 const hrsdwn = 60 - hrs
-                const min1 = dt.getMinutes();
+                const min1 = d8.getMinutes();
                 const min = min1 + 1
                 const mindwn = 60 - min
                 const gay = (mindwn<10?'0':'') + mindwn
-                msg.edit('Stream začíná za' + gay+ ':' +hrsdwn + '| <http://twitch.tv/xd_p0tat0>');
+                const gay2 = (hrsdwn<10?'0':'') + hrsdwn
+                msg.edit('@everyone stream začíná za ' + gay+ ':' +gay2 + ' | <http://twitch.tv/xd_p0tat0>');
                 const dt = new Date();
                 const hours = dt.getHours();
                 const hours2 = hours + 1;
                 const minutes = dt.getMinutes() ; 
                 const cas = hours2 + ":" + minutes;
-                if(cas == '19:00'){
+                if(cas == '19:0'){
                 return;
                }
             }, 5000)
@@ -79,10 +81,10 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.5**, Název verze: **Bramborový update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný msg.edit pro oznamování streamů\n- Bugfix*');
+        msg.channel.send('Verze **0.9.5**, Název verze: **Bramborový update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný msg.edit pro oznamování streamů\n- Mega Bugfix*');
     }
     if(msg.content === ">help"){
-        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>napad** (zpráva) - Pošle nápad do kanálu s nápady.');
+        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.');
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
@@ -91,10 +93,6 @@ msg.channel.send(tajm);
     if(msg.channel.id === "769123649063878656"){
         msg.react('✅');
         msg.react('❌');
-    }
-    if(msg.content === '>cooldown'){
-        msg.channel.send('Na tomto příkazu se pracuje...')
-        
     }
     
 })
