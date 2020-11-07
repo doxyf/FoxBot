@@ -81,10 +81,10 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.5**, Název verze: **Bramborový update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný msg.edit pro oznamování streamů\n- Mega Bugfix*');
+        msg.channel.send('Verze **0.9.6**, Název verze: **Repeat update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >echo*');
     }
     if(msg.content === ">help"){
-        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.');
+        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo**(zpráva) - Zopakuje zprávu');
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
@@ -93,6 +93,10 @@ msg.channel.send(tajm);
     if(msg.channel.id === "769123649063878656"){
         msg.react('✅');
         msg.react('❌');
+    }
+    if(msg.content.startsWith('>echo')){
+        const reply = msg.content.slice(5);
+        msg.channel.send(reply);
     }
     
 })
