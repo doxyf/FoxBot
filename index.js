@@ -44,7 +44,9 @@ bot.on('ready', () =>{
                 const minutes = dt.getMinutes() ; 
                 const cas = hours2 + ":" + minutes;
                 if(cas == '19:0'){
-                bot.channels.cache.get("618397936979673100").send("19:00 true");
+                msg.delete
+                bot.channels.cache.get("726447986372247602").send("Je 19:00 a xd_Potato by měl začít vysílat | <http://twitch.tv/xd_p0tat0>");
+                return;
                }
             }, 5000)
           }); 
