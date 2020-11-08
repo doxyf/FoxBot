@@ -83,10 +83,10 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.6**, Název verze: **Repeat update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >echo*');
+        msg.channel.send('Verze **0.9.7**, Název verze: **Math update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >calc*');
     }
     if(msg.content === ">help"){
-        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo**(zpráva) - Zopakuje zprávu');
+        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad');
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
@@ -99,6 +99,27 @@ msg.channel.send(tajm);
     if(msg.content.startsWith('>echo')){
         const reply = msg.content.slice(5);
         msg.channel.send(reply);
+    }
+    if(msg.content.startsWith(">calc")){
+        const splitter = msg.content.slice(6);
+        const msgsplit = splitter.split(" ")
+        finalsplit = 'Chyba. *TIP: Používej mezery. např.: 2+2 nebude fungovat, místo toho použij 2 + 2*'
+        if(msgsplit[1] == '+'){
+            number1=parseFloat(msgsplit[0]);
+            number2=parseFloat(msgsplit[2]);
+            finalsplit = number1+number2
+        }
+        if(msgsplit[1] == '-'){
+           finalsplit = msgsplit[0] - msgsplit[2]
+        }
+        if(msgsplit[1] == '*'){
+            finalsplit = msgsplit[0] * msgsplit[2]
+        }
+        if(msgsplit[1] == '/'){
+            finalsplit = msgsplit[0] / msgsplit[2]
+        }
+        console.log(msg.author.tag+' executed '+msgsplit[0] +' '+msgsplit[1]+' '+ msgsplit[2] +' = '+ finalsplit)
+        msg.channel.send(finalsplit);
     }
     
 })
