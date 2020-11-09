@@ -46,7 +46,7 @@ bot.on('ready', () =>{
                 if(cas == '19:0'){
                 msg.delete
                 bot.channels.cache.get("726447986372247602").send("Je 19:00 a xd_Potato by měl začít vysílat | <http://twitch.tv/xd_p0tat0>");
-                return;
+                break;
                }
             }, 5000)
           }); 
