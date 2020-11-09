@@ -83,7 +83,7 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.7**, Název verze: **Math update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >calc*');
+        msg.channel.send('Verze **0.9.75**, Název verze: **AdminV1** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >kick pro administrátory a helpery serveru.*');
     }
     if(msg.content === ">help"){
         msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad');
@@ -121,7 +121,21 @@ msg.channel.send(tajm);
         console.log(msg.author.tag+' executed '+msgsplit[0] +' '+msgsplit[1]+' '+ msgsplit[2] +' = '+ finalsplit)
         msg.channel.send(finalsplit);
     }
-    
+    if(msg.content.startsWith('>kick')){
+        if (msg.member.hasPermission("KICK_MEMBERS")){
+            const user = msg.mentions.users.first();
+            if(user){
+                const member = msg.guild.member(user);
+                if(member){
+                    member.kick('kicked').then(()=>{
+                        reason = msg.content.split('>')
+                        console.log(reason)
+                        msg.channel.send('Uživatel **'+user.tag+'** vyhozen. Důvod:'+reason[2]);
+                    });
+                }
+            }
+        }else(msg.channel.send('Nemáš permise na kick!'))
+    }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
 
