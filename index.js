@@ -12,7 +12,7 @@ bot.on('ready', () =>{
 
 //admincmds id 726428996379869194
 
-//oznamování stramů---------------------------------------------------------------------------------------------------------------//
+//oznamování stramů (broken)------------------------------------------------------------------------------------------------------//
 bot.on('ready', () =>{
     console.log(cas)
     setInterval(() =>{
@@ -83,7 +83,7 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.75**, Název verze: **AdminV1** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >kick pro administrátory a helpery serveru.*');
+        msg.channel.send('Verze **0.9.8**, Název verze: **AdminV2** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >ban pro administrátory a helpery serveru.*');
     }
     if(msg.content === ">help"){
         msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad');
@@ -136,11 +136,21 @@ msg.channel.send(tajm);
             }
         }else(msg.channel.send('Nemáš permise na kick!'))
     }
-})
-//--------------------------------------------------------------------------------------------------------------------------------//
-
-//Direct msg system---------------------------------------------------------------------------------------------------------------//
-bot.on('message', msg=>{
+    if(msg.content.startsWith('>ban')){
+    if (msg.member.hasPermission("BAN_MEMBERS")){
+        const user = msg.mentions.users.first();
+        if(user){
+            const member = msg.guild.member(user);
+            if(member){
+                member.ban({ days: 7, reason: 'banned' }).then(()=>{
+                    reason = msg.content.split('>')
+                    console.log(reason)
+                    msg.channel.send('Uživatel **'+user.tag+'** zabanován. Důvod:'+reason[2]);
+                });
+            }
+        }
+    }else(msg.channel.send('Nemáš permise na ban!'))
+}
     if(msg.content.startsWith('>dm') && msg.author.id == 399139182725038080){
         (msg.channel.send('Posílám zprávu'));
         mention = msg.mentions.users.first();
@@ -148,32 +158,6 @@ bot.on('message', msg=>{
         mention.send(dmmsg);
         (msg.channel.send('Zpráva odeslána úspěšně.'));
     }
-})
-//--------------------------------------------------------------------------------------------------------------------------------//
-
-//nápady--------------------------------------------------------------------------------------------------------------------------//
-bot.on('message', msg=>{
-    if(msg.channel.id === '769130381181321236'){
-        if(msg.content.startsWith('>napad')){
-            if(usedCommandRecently.has(msg.author.id)){
-            msg.reply('dej si pauzu. Tenhle příkaz se dá použít jen jednou za hodinu.')
-            }
-            else{
-            mention = msg.mentions.users.first();
-            napados = msg.content.slice (7);
-            bot.channels.cache.get("769218051928490055").send(napados + ' | Poslal:' + ' <@'+msg.author+'>');
-            usedCommandRecently.add(msg.author.id);
-            setTimeout(() =>  {
-                usedCommandRecently.delete(msg.author.id);
-            }, 3600000)
-            }
-        }
-    }
-    if(msg.channel.id === "769218051928490055"){
-        msg.react('✅');
-        msg.react('❌');
-    }
-    
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
 
