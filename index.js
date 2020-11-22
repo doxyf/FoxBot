@@ -4,6 +4,7 @@ const prefix = '>';
 const dateWithouthSecond = new Date();
 const cas = new Date().toLocaleString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' });
 const usedCommandRecently = new Set();
+const ms = require("ms");
 
 bot.on('ready', () =>{
     console.log('Online');
