@@ -34,7 +34,7 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.8**, Název verze: **AdminFinal** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >ban pro administrátory a helpery serveru.*');
+        msg.channel.send('Verze **0.9.8**, Název verze: **AdminV2** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >ban pro administrátory a helpery serveru.*');
     }
     if(msg.content === ">help"){
         msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad\n**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)\n**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)');
