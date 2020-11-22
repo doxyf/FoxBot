@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const prefix = '>';
-const dateWithouthSecond = new Date();
-const cas = new Date().toLocaleString('cz', { timeZone: 'Europe/Prague', hour: '2-digit', minute:'2-digit' });
-const usedCommandRecently = new Set();
+const PREFIX = '>';
 const ms = require("ms");
 
 bot.on('ready', () =>{
@@ -117,7 +114,7 @@ msg.channel.send(tajm);
       if(msg.member.hasPermission("MUTE_MEMBERS")){
     let args = msg.content.substring(PREFIX.length).split(" ");
     var person  = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[1]));
-            if(!person) return  msg.reply("Nelze najít uživatele" + person)
+            if(!person) return  msg.channel.send("Nelze najít uživatele " + person)
             let role = msg.guild.roles.cache.find(role => role.name === "MUTED");
            
  
