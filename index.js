@@ -11,52 +11,6 @@ bot.on('ready', () =>{
     bot.user.setActivity('>help', {type: 'WATCHING'});
 })
 
-//admincmds id 726428996379869194
-
-//oznamování stramů (broken)------------------------------------------------------------------------------------------------------//
-bot.on('ready', () =>{
-    console.log(cas)
-    setInterval(() =>{
-        delete hours
-        delete minutes
-        delete finalTime
-        delete dt
-        const dt = new Date();
-        const hours = dt.getHours(); // gives the value in 24 hours format
-        const hours2 = hours + 1;
-        const minutes = dt.getMinutes() ; 
-        const cas = hours2 + ":" + minutes;
-       if(cas == '18:50'){
-       bot.channels.cache.get("726447986372247602").send("@everyone stream začíná za 10 minut | <http://twitch.tv/xd_p0tat0>")
-           .then((msg)=> {
-            setInterval(function(){
-                const d8 = new Date();
-                const hrs = d8.getSeconds();
-                const hrsdwn = 60 - hrs
-                const min1 = d8.getMinutes();
-                const min = min1 + 1
-                const mindwn = 60 - min
-                const gay = (mindwn<10?'0':'') + mindwn
-                const gay2 = (hrsdwn<10?'0':'') + hrsdwn
-                msg.edit('@everyone stream začíná za ' + gay+ ':' +gay2 + ' | <http://twitch.tv/xd_p0tat0>');
-                const dt = new Date();
-                const hours = dt.getHours();
-                const hours2 = hours + 1;
-                const minutes = dt.getMinutes() ; 
-                const cas = hours2 + ":" + minutes;
-                if(cas == '19:0'){
-                msg.delete
-                bot.channels.cache.get("726447986372247602").send("Je 19:00 a xd_Potato by měl začít vysílat | <http://twitch.tv/xd_p0tat0>");
-                break;
-               }
-            }, 5000)
-          }); 
-       }
-       else(console.log(cas));
-   }, 60000)
-})
-//--------------------------------------------------------------------------------------------------------------------------------//
-
 //příkazy-------------------------------------------------------------------------------------------------------------------------//
 bot.on('message', msg=>{
     if (msg.author.bot){
