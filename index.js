@@ -83,10 +83,10 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.8**, Název verze: **AdminV2** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >ban pro administrátory a helpery serveru.*');
+        msg.channel.send('Verze **0.9.9**, Název verze: **AdminFinal** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >mute pro administrátory a helpery serveru.*');
     }
     if(msg.content === ">help"){
-        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad\n**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)\n**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)');
+        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad\n**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)\n**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)\n**>mute (user) (time)** - Ztlumí uživatele (potřeba oprávnění: MUTE_MEMBERS)');
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
@@ -157,6 +157,33 @@ msg.channel.send(tajm);
         dmmsg = msg.content.slice (4);
         mention.send(dmmsg);
         (msg.channel.send('Zpráva odeslána úspěšně.'));
+    }
+    if(msg.content.startsWith('>mute')){
+      if(msg.member.hasPermission("MUTE_MEMBERS")){
+    let args = msg.content.substring(PREFIX.length).split(" ");
+    var person  = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[1]));
+            if(!person) return  msg.reply("Nelze najít uživatele" + person)
+            let role = msg.guild.roles.cache.find(role => role.name === "MUTED");
+           
+ 
+            if(!role) return msg.channel.send("Nelze najít roli. Pro fungování tohoto příkazu musí existovat role MUTED s vypnutými oprávněními pro psaní!");
+ 
+ 
+            let time = args[2];
+            if(!time){
+                return msg.channel.send("Neznámý čas");
+            }
+
+            person.roles.add(role.id)
+ 
+            msg.channel.send(`<@${person.id}> je ztlumený po dobu ${ms(ms(time))}`)
+ 
+            setTimeout(function(){
+                
+                person.roles.remove(role.id);
+                msg.channel.send(`<@${person.id}> je odtlumen!`)
+            }, ms(time));
+        }  else{msg.channel.send('Nemáš oprávnění na mute!')}
     }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
