@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const PREFIX = '>';
+const { JSDOM } = require( "jsdom" );
+const { window } = new JSDOM( "" );
+const $ = require( "jquery" )( window );
 
 bot.on('ready', () =>{
     console.log('Online');
@@ -34,10 +37,10 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.8**, Název verze: **AdminV2** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >ban pro administrátory a helpery serveru.*');
+        msg.channel.send('Verze **0.9.9**, Název verze: **Quarantine** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >covid pro zobrazení aktuální covid statistiky.*');
     }
     if(msg.content === ">help"){
-        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad\n**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)\n**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)');
+        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad\n**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)\n**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)\n**>covid** - Zobrazí aktuální statistiky covidu v ČR.');
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
@@ -109,7 +112,12 @@ msg.channel.send(tajm);
         mention.send(dmmsg);
         (msg.channel.send('Zpráva odeslána úspěšně.'));
     }
-
+    if(msg.content === '>covid'){
+        var StaticURL = 'https://api.apify.com/v2/key-value-stores/K373S4uCFR9W1K8ei/records/LATEST?disableRedirect=true'
+        $.getJSON(StaticURL ,function(data){
+            msg.channel.send('**Aktivní případy:** '+data.infected+'\n**Celkem provedených testů:** '+data.totalTested+'\n**Zotavených:** '+data.recovered+'\n**Smrti:** '+data.deceased+'\n*Naposledy aktualizováno:* '+data.lastUpdatedAtApify)
+        })
+    }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
 
