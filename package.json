@@ -1,7 +1,7 @@
 {
-  "name": "bot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "FoxBot",
+  "version": "0.9.9",
+  "description": "The Discord bot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
