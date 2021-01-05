@@ -125,7 +125,7 @@ msg.channel.send(tajm);
         eval(evmsg);
         console.log('Evaluated successfully')
         msg.reply('vyhodnoceno 👍')
-        }else(msg.channel.send('Nemáš permise!')
+        }else(msg.channel.send('Nemáš permise!'));
     }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
