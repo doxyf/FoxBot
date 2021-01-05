@@ -118,6 +118,15 @@ msg.channel.send(tajm);
             msg.channel.send('**Potvrzené případy:** '+data.infected+'\n**Celkem provedených testů:** '+data.totalTested+'\n**Zotavených:** '+data.recovered+'\n**Smrti:** '+data.deceased+'\n*Naposledy aktualizováno:* '+data.lastUpdatedAtApify)
         })
     }
+    if(msg.content.startsWith('>eval')){
+        if(msg.author.id == '399139182725038080'){
+        const evmsg = msg.content.slice(6)
+        console.log('Trying to evaluate command: '+evmsg)
+        eval(evmsg);
+        console.log('Evaluated successfully')
+        msg.reply('vyhodnoceno 👍')
+        }else(msg.channel.send('Nemáš permise!')
+    }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
 
