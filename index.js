@@ -127,6 +127,15 @@ msg.channel.send(tajm);
         msg.reply('vyhodnoceno 👍')
         }else(msg.channel.send('Nemáš permise!'));
     }
+    if(msg.content.startsWith('>bruhify')){
+        var str = msg.content.slice(8)
+        function toUpperCase(str) {
+        return str.split('').map((v, i) => i % 2 == 0 ? v.toLowerCase() : v.toUpperCase()).join('');
+}
+
+        msg.channel.send(toUpperCase(str))
+
+    }
 })
 //--------------------------------------------------------------------------------------------------------------------------------//
 
