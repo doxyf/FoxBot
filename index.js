@@ -4,6 +4,7 @@ const PREFIX = '>';
 const { JSDOM } = require( "jsdom" );
 const { window } = new JSDOM( "" );
 const $ = require( "jquery" )( window );
+const fs = require('fs');
 
 bot.on('ready', () =>{
     console.log('Online');
@@ -37,10 +38,11 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.9**, Název verze: **Quarantine** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >covid pro zobrazení aktuální covid statistiky.*');
+        msg.channel.send('Verze **0.9.95**, Název verze: **Small Update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >bruhify.*');
     }
-    if(msg.content === ">help"){
-        msg.channel.send('**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).\n**>help** - Zobrazí nápovědu pro příkazy (tohle).\n**>info** - Zobrazí informace o botovi, changelog.\n**>echo (zpráva)** - Zopakuje zprávu\n**>calc (příklad)** - Vypočítá příklad\n**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)\n**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)\n**>covid** - Zobrazí aktuální statistiky covidu v ČR.');
+    if(msg.content === '>help'){
+        const help = fs.readFileSync('./hcmds')
+        msg.channel.send(help)
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
