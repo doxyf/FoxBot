@@ -1,1 +1,9 @@
-
+**Příkazy pro FoxBota:**\n**>time** - Zobrazí současný čas (hh:mm).
+**>help** - Zobrazí nápovědu pro příkazy (tohle).
+**>info** - Zobrazí informace o botovi, changelog.
+**>echo (zpráva)** - Zopakuje zprávu.
+**>calc (příklad)** - Vypočítá příklad.
+**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)
+**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)
+**>covid** - Zobrazí aktuální statistiky covidu v ČR.
+**>bruhify** - AuTiStIcKý tExT
