@@ -41,8 +41,16 @@ msg.channel.send(tajm);
         msg.channel.send('Verze **0.9.95**, Název verze: **Small Update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >bruhify.*');
     }
     if(msg.content === '>help'){
-        const help = fs.readFileSync('./hcmds')
-        msg.channel.send(help)
+        msg.channel.send('**Příkazy pro FoxBota:**\n'+
+        '**>time** - Zobrazí současný čas (hh:mm).\n'+
+        '**>help** - Zobrazí nápovědu pro příkazy (tohle).\n'+
+        '**>info** - Zobrazí informace o botovi, changelog.\n'+
+        '**>echo (zpráva)** - Zopakuje zprávu.\n'+
+        '**>calc (příklad)** - Vypočítá příklad.\n'+
+        '**>ban (user) (reason)** - Zabanuje uživatele (potřeba oprávnění: BAN_MEMBERS)\n'+
+        '**>kick (user) (reason)** - Vyhodí uživatele ze serveru (potřeba oprávnění: KICK_MEMBERS)\n'+
+        '**>covid** - Zobrazí aktuální statistiky covidu v ČR.\n'+
+        '**>bruhify** - AuTiStIcKý tExT');
     }
     if(msg.channel.id === "726484288647725077"){
         msg.react('✅');
