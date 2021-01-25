@@ -125,7 +125,7 @@ msg.channel.send(tajm);
     if(msg.content === '>covid'){
         var StaticURL = 'https://api.apify.com/v2/key-value-stores/K373S4uCFR9W1K8ei/records/LATEST?disableRedirect=true'
         $.getJSON(StaticURL ,function(data){
-            msg.channel.send('**Potvrzené případy:** '+data.infected+'\n**Celkem provedených testů:** '+data.totalTested+'\n**Zotavených:** '+data.recovered+'\n**Smrti:** '+data.deceased+'\n*Naposledy aktualizováno:* '+data.lastUpdatedAtApify)
+            msg.channel.send('**Aktivní případy:** '+data.active+'\n**Potvrzené případy:** '+data.infected+'\n**Celkem provedených testů:** '+data.totalTested+'\n**Zotavených:** '+data.recovered+'\n**Smrti:** '+data.deceased+'\n*Naposledy aktualizováno:* '+data.lastUpdatedAtApify)
         })
     }
     if(msg.content.startsWith('>eval')){
