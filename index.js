@@ -38,7 +38,10 @@ const tajm = (hodiny<10?'0':'') + hodiny+':'+(minuty<10?'0':'') + minuty
 msg.channel.send(tajm);
     }
     if(msg.content === ">info"){
-        msg.channel.send('Verze **0.9.95**, Název verze: **Small Update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >bruhify.*');
+        if(msg.author.id == '618459055916187679'){
+        msg.reply('no more pings for you hahaha')
+        }else {msg.channel.send('Verze **0.9.95**, Název verze: **Small Update** | Vytvořil <@399139182725038080>\nZměny:\n*- Přidaný příkaz >bruhify.*')};
+    
     }
     if(msg.content === '>help'){
         msg.channel.send('**Příkazy pro FoxBota:**\n'+
