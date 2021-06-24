@@ -18,9 +18,13 @@ bot.on('message', msg=>{
         return;
     }
     if(msg.content === "čau"){
+        if(msg.channel.name == 'ludvík') return;
+        if(msg.channel.name == 'ludvik') return;
         msg.channel.send('ahoj :)');
     }
     if(msg.content === "ahoj"){
+        if(msg.channel.name == 'ludvík') return;
+        if(msg.channel.name == 'ludvik') return;
         msg.channel.send('čau :)');
     }
     if(msg.content === "hotel"){
