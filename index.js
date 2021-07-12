@@ -148,7 +148,10 @@ msg.channel.send(tajm);
         var str = msg.content.slice(8)
         function toUpperCase(str) {
         return str.split('').map((v, i) => i % 2 == 0 ? v.toLowerCase() : v.toUpperCase()).join('');
-}
+    }
+       if(msg.content.includes('tenor.com'){
+          msg.delete()
+    }
 
         msg.channel.send(toUpperCase(str))
 
